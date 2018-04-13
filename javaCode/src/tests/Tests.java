@@ -2,8 +2,11 @@ package tests;
 
 import code.Main;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
-class Tests {
+import java.lang.annotation.Annotation;
+
+class Tests  {
         private Main main = new Main();
         @Test
         void test1() {
