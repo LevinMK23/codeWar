@@ -16,7 +16,7 @@ public class TestServer {
         try(ServerSocket server = new ServerSocket(3345)){
             Socket client = server.accept();
             System.out.println("Connection accepted!");
-
+            System.out.println(server.getInetAddress());
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
             System.out.println("DataOutputStream  created");
 
@@ -27,7 +27,6 @@ public class TestServer {
             while(!client.isClosed()){
                 System.out.println("Server reading from channel");
                 String entry = in.readUTF();
-
                 URL url = new URL("https://" + entry);
                 InputStream is = url.openStream();
                 Scanner scanner = new Scanner(is);
