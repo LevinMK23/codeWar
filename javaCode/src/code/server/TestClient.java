@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.channels.Channel;
 import java.nio.channels.Channels;
+import java.util.Arrays;
 
 public class TestClient {
     public static void main(String[] args) throws InterruptedException{
@@ -40,7 +41,9 @@ public class TestClient {
                     if(ois.available() != -1)     {
                         System.out.println("reading...");
                         String in = ois.readUTF();
-                        System.out.println(in);
+                        in = in.replaceAll(">", ">,,,,,,");
+                        String [] printData = in.split(",,,,,,");
+                        for (String i : printData) System.out.println(i);
                     }
                 }
             }
